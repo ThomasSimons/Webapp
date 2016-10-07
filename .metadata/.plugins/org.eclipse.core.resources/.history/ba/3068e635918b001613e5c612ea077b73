@@ -1,0 +1,7 @@
+package com.realdolmen.jsp.servlets;
+
+import HttpServlet;
+
+public class MainServlet extends HttpServlet {
+
+}

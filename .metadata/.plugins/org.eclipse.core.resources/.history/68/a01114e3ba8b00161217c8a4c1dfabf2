@@ -1,0 +1,20 @@
+package webapp;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import com.realdolmen.jsp.model.Person;
+
+public class TestPerson {
+
+	@Test
+	public void test() {
+		Person p = new Person("thomas");
+		String expected= "Person [name=thomas]";
+		Assert.assertTrue(expected.equals(p.toString()));
+		fail("Not yet implemented");
+	}
+
+}

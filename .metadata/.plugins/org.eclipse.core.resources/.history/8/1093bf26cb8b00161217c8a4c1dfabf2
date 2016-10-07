@@ -1,0 +1,5 @@
+package com.realdolmen.bookstore.model;
+
+public class Book {
+
+}

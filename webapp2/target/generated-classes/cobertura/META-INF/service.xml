@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+	<url>jdbc:hsqldb:mem:mydb</url>
+	<user>sa</user>
+	<password></password>
+</service>

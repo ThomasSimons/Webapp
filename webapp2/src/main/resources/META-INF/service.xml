@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+	<url>${jdbc.url}</url>
+	<user>${jdbc.username}</user>
+	<password>${jdbc.password}</password>
+</service>

@@ -1,0 +1,79 @@
+package com.realdolmen.jsp.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(value="/hello",loadOnStartup=1,initParams={@WebInitParam (name="message",value="Hello, this is the servlet")})
+public class HelloWorldServlet extends HttpServlet {
+
+	
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		String message = config.getInitParameter("message");
+		System.out.println("Servlet started with message: "+ message);
+	}
+ 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+		out.println("<!doctype html>");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Hello Mars</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<h1>Hello Mars!</h1>");
+
+		String name = req.getParameter("name") + "";
+		String lastname = req.getParameter("lastname")+ "";
+		if (isFilledIn(name) && isFilledIn(lastname)) {
+			handleFrom(out, name,lastname);
+		} else {
+			outputForm(out,name,lastname);
+		}
+
+		out.println("</body>");
+		out.println("</html>");
+
+	}
+
+	private void handleFrom(PrintWriter out, String name,String lastname) {
+		out.println("<p>Thanks for filling in your name, " + name + " and last name: "+lastname+"!</p>");
+
+
+	}
+
+	private boolean isFilledIn(String name) {
+		return name != null && !name.trim().equals("");
+
+	}
+
+	private void outputForm(PrintWriter out,String name,String lastname) {
+		out.println("<form method=\"post\" action=\"hello\">");
+		out.println("<label for=\"name\"> Name:</label>");
+		out.println("<input type=\"text\" id=\"name\" name=\"name\"/ value=\""+name+"\">");
+		out.println("<label for=\"lastname\"> LastName:</label>");
+		out.println("<input type=\"text\" id=\"lastname\" name=\"lastname\" value=\""+name+"\"/>");
+		out.println("<input type=\"submit\" value=\"Send\"/>");
+
+		out.println("</form>");
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+
+}

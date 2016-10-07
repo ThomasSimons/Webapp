@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib  prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <fmt:setBundle basename="messages"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title><fmt:message key="page.result.title"/></title>
+</head>
+<body>
+	<fmt:message key="page.result.message">
+		<fmt:param value="${name}"/>
+	<fmt:message/>
+</body>
+</html>

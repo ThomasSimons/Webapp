@@ -1,0 +1,8 @@
+package com.realdolmen.jsp.servlets;
+
+import HttpServlet;
+import java.io.IOException;
+
+public class MainServlet extends HttpServlet {
+
+}
